@@ -3,15 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ricardo <ricardo@student.42.fr>            +#+  +:+       +#+        */
+/*   By: tbolzan- <tbolzan-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/05 12:39:12 by ricardo           #+#    #+#             */
-/*   Updated: 2023/12/19 18:03:17 by ricardo          ###   ########.fr       */
+/*   Created: 2024/02/19 13:24:45 by tbolzan-          #+#    #+#             */
+/*   Updated: 2024/02/19 13:24:50 by tbolzan-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
-
 
 unsigned int	ft_atoi(char *str)
 {

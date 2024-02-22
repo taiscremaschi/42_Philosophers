@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: ricardo <ricardo@student.42.fr>            +#+  +:+       +#+         #
+#    By: tbolzan- <tbolzan-@student.42lisboa.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2023/12/19 17:48:55 by ricardo           #+#    #+#              #
-#    Updated: 2023/12/19 18:07:23 by ricardo          ###   ########.fr        #
+#    Created: 2024/02/19 13:24:31 by tbolzan-          #+#    #+#              #
+#    Updated: 2024/02/19 14:23:55 by tbolzan-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,7 @@ NAME = philo
 
 CC = cc
 
-CFLAGS = -Wall -Werror -Wextra -fsanitize=address -g
+CFLAGS = -Wall -Werror -Wextra -pthread
 
 RM = rm -f
 

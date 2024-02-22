@@ -3,27 +3,39 @@
 /*                                                        :::      ::::::::   */
 /*   inicialize.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ricardo <ricardo@student.42.fr>            +#+  +:+       +#+        */
+/*   By: tbolzan- <tbolzan-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/05 12:08:21 by ricardo           #+#    #+#             */
-/*   Updated: 2023/12/19 18:26:44 by ricardo          ###   ########.fr       */
+/*   Created: 2024/02/19 13:24:12 by tbolzan-          #+#    #+#             */
+/*   Updated: 2024/02/21 21:47:28 by tbolzan-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
+void	inicialize_forks(pthread_mutex_t *fork, int nbr_philo)
+{
+	int	i;
+
+	i = 0;
+	while (i < nbr_philo)
+	{
+		pthread_mutex_init(&fork[i], NULL);
+		i++;
+	}
+}
+
 void inicialize_all(t_start *start)
 {
     int i = 0;
     
+    pthread_mutex_init(&start->end_mutex, NULL);
     while(i < start->nbr_philo)
     {
-        printf("%d\n", i);
         pthread_mutex_init(&start->philos[i].write, NULL);
         pthread_mutex_init(&start->philos[i].dead_mutex, NULL);
         pthread_mutex_init(&start->philos[i].meal_mutex, NULL);
         pthread_mutex_init(&start->philos[i].fork_left, NULL);
-        
+        //start->philos[i].dead_mutex = &start->end_mutex;
         if(i == start->nbr_philo - 1)
             start->philos[i].fork_right = &start->philos[0].fork_left;
         else 
@@ -39,7 +51,6 @@ int inicialize_arguments(char **av, t_start *start)
     i = 0;
     start->nbr_philo = ft_atoi(av[1]);
 
-    start->philos = malloc(sizeof(t_philo) * (start->nbr_philo + 1));
     start->dead_flag = 0;
     while(i < start->nbr_philo)
     {
@@ -60,5 +71,7 @@ int inicialize_arguments(char **av, t_start *start)
         start->philos[i].dead = &start->dead_flag;
         i++;
     }
+    inicialize_forks(start->fork, start->nbr_philo);
+    
     return (0);
 }
