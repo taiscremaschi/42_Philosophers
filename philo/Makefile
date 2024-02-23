@@ -6,7 +6,7 @@
 #    By: tbolzan- <tbolzan-@student.42lisboa.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/02/19 13:24:31 by tbolzan-          #+#    #+#              #
-#    Updated: 2024/02/19 14:23:55 by tbolzan-         ###   ########.fr        #
+#    Updated: 2024/02/23 18:20:17 by tbolzan-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,7 +21,7 @@ RM = rm -f
 
 AR = ar -rsc
 
-SRC = inicialize.c main.c utils.c
+SRC = inicialize.c main.c utils.c routines.c
 
 OBJ = $(SRC:.c=.o)
 
