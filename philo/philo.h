@@ -6,7 +6,7 @@
 /*   By: tbolzan- <tbolzan-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/19 13:24:39 by tbolzan-          #+#    #+#             */
-/*   Updated: 2024/02/23 12:12:06 by tbolzan-         ###   ########.fr       */
+/*   Updated: 2024/02/23 18:19:13 by tbolzan-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,13 +37,14 @@ typedef struct s_philo
     int nbr_eat;
     int *dead;
     long int last_meal;
-    long int start_time;
+    long int *start_time;
 } t_philo;
 
 typedef struct s_start 
 {
     
     int nbr_philo;
+    long int real_start_time;
     int dead_flag;
     pthread_mutex_t end_mutex;
     pthread_mutex_t fork[MAX_NBR];
@@ -64,7 +65,17 @@ void inicialize_all(t_start *start);
 
 
 //////////////////// main ////////////////////
+void print_actions(t_philo *philo, int token);
+int philo_is_dead(t_philo philo);
+int handle_dead(t_start *start);
+void monitor(t_start *start);
 
 
+////////////////////////routines///////////
+int philo_sleep(t_philo *philo);
+int eat(t_philo *philo);
+void *routine(void *arg);
+int is_over(t_philo *arg);
+int wait_time(size_t milli, t_philo *philo);
 
 #endif

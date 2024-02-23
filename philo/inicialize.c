@@ -6,7 +6,7 @@
 /*   By: tbolzan- <tbolzan-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/19 13:24:12 by tbolzan-          #+#    #+#             */
-/*   Updated: 2024/02/23 13:04:19 by tbolzan-         ###   ########.fr       */
+/*   Updated: 2024/02/23 18:04:59 by tbolzan-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,7 @@ int inicialize_arguments(char **av, t_start *start)
         start->philos[i].id = i + 1;
         start->philos[i].dead = &start->dead_flag;
         start->philos[i].last_meal = 0;
-        start->philos[i].start_time = 0;
+        start->philos[i].start_time = &start->real_start_time;
         i++;
     }
     inicialize_forks(start->fork, start->nbr_philo);
