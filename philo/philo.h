@@ -6,7 +6,7 @@
 /*   By: tbolzan- <tbolzan-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/19 13:24:39 by tbolzan-          #+#    #+#             */
-/*   Updated: 2024/02/21 22:03:26 by tbolzan-         ###   ########.fr       */
+/*   Updated: 2024/02/23 12:12:06 by tbolzan-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,8 +34,10 @@ typedef struct s_philo
     int time_die;  
     int time_eat;
     int time_sleep; 
-    int nbr_time_eat;
+    int nbr_eat;
     int *dead;
+    long int last_meal;
+    long int start_time;
 } t_philo;
 
 typedef struct s_start 
@@ -52,6 +54,8 @@ typedef struct s_start
 /////////////// utils /////////////////
 unsigned int	ft_atoi(char *str);
 int	ft_putstr(char *s);
+long int get_current_time();
+
 
 /////////////// inicialize ///////////////
 

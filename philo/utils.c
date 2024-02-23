@@ -6,11 +6,19 @@
 /*   By: tbolzan- <tbolzan-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/19 13:24:45 by tbolzan-          #+#    #+#             */
-/*   Updated: 2024/02/19 13:24:50 by tbolzan-         ###   ########.fr       */
+/*   Updated: 2024/02/22 19:19:31 by tbolzan-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
+
+long int get_current_time()
+{
+    struct timeval current_time;
+    
+    gettimeofday(&current_time, NULL);
+    return (current_time.tv_sec * 1000 + current_time.tv_usec / 1000);
+}
 
 unsigned int	ft_atoi(char *str)
 {
@@ -51,4 +59,3 @@ int	ft_putstr(char *s)
 		ft_putchar_fd(s[x++]);
 	return (x);
 }
-
