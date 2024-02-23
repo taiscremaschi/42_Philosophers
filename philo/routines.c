@@ -6,7 +6,7 @@
 /*   By: tbolzan- <tbolzan-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/23 18:11:23 by tbolzan-          #+#    #+#             */
-/*   Updated: 2024/02/23 18:17:28 by tbolzan-         ###   ########.fr       */
+/*   Updated: 2024/02/23 18:53:17 by tbolzan-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,15 +82,25 @@ int eat(t_philo *philo)
 void *routine(void *arg)
 {
     t_philo *philo = (t_philo *)arg;
-
-
-    //enquanto minha dead flag na for um
-    while(is_over(philo) == 0)
+    if(philo->nbr_eat >= 1)
     {
-        if (eat(philo) == 1)
-            break ;
-        if(philo_sleep(philo) == 1)
-            break;
+        while(is_over(philo) == 0 || philo->nbr_eat_now <= philo->nbr_eat)
+        {
+            if (eat(philo) == 1)
+                break ;
+            if(philo_sleep(philo) == 1)
+                break ;
+        }
+    }
+    else
+    {
+        while(is_over(philo) == 0)
+        {
+            if (eat(philo) == 1)
+                break ;
+            if(philo_sleep(philo) == 1)
+                break ;
+        }
     }
     return (NULL);
 }
