@@ -6,7 +6,7 @@
 /*   By: tbolzan- <tbolzan-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/23 18:11:23 by tbolzan-          #+#    #+#             */
-/*   Updated: 2024/02/23 20:33:13 by tbolzan-         ###   ########.fr       */
+/*   Updated: 2024/02/25 11:44:31 by tbolzan-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,8 +66,8 @@ int	eat(t_philo *philo)
 		pthread_mutex_lock(philo->fork_right);
 	}
 	print_actions(philo, 1);
-	philo->last_meal = get_current_time();
 	philo->nbr_eat_now += 1;
+	philo->last_meal = get_current_time();
 	flag = wait_time(philo->time_eat, philo);
 	pthread_mutex_unlock(&philo->fork_left);
 	pthread_mutex_unlock(philo->fork_right);

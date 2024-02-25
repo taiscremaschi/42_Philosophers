@@ -6,7 +6,7 @@
 #    By: tbolzan- <tbolzan-@student.42lisboa.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/02/19 13:24:31 by tbolzan-          #+#    #+#              #
-#    Updated: 2024/02/23 19:02:20 by tbolzan-         ###   ########.fr        #
+#    Updated: 2024/02/25 11:08:15 by tbolzan-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,7 @@ NAME = philo
 
 CC = cc
 
-CFLAGS = -Wall -Werror -Wextra -pthread
+CFLAGS = -Wall -Werror -Wextra -lpthread
 
 RM = rm -f
 

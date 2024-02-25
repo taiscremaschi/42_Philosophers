@@ -6,7 +6,7 @@
 /*   By: tbolzan- <tbolzan-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/19 13:24:25 by tbolzan-          #+#    #+#             */
-/*   Updated: 2024/02/23 20:33:18 by tbolzan-         ###   ########.fr       */
+/*   Updated: 2024/02/25 12:12:41 by tbolzan-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,13 +72,54 @@ int	handle_dead(t_start *start)
 	return (0);
 }
 
+int check_eatings(t_start *start, int nbr_eat)
+{
+    int	i;
+    int nbrphilo = start->nbr_philo;
+    
+    i = 0;
+    while(i < start->nbr_philo)
+    {
+        if (start->philos[i].nbr_eat_now >= nbr_eat)
+		{
+            i++;
+        }
+        else 
+            break ;
+        
+    }
+    if( i == nbrphilo)
+    {
+		start->dead_flag = 1;
+		return (1);
+    }
+	return (0);
+    
+}
+
 void	monitor(t_start *start)
 {
-	while (1)
-	{
-		if (handle_dead(start) == 1)
-			break ;
-	}
+    int nbr_eat = start->philos[0].nbr_eat;
+
+    if(nbr_eat != -1)
+    {
+        while (1)
+        {
+            if (check_eatings(start, nbr_eat) == 1 || handle_dead(start) == 1)
+                break ;
+            usleep(500);
+        }
+        
+    }
+    else 
+    {
+        while (1)
+        {
+            if (handle_dead(start) == 1)
+                break ;
+        }
+        
+    }
 }
 
 int	main(int ac, char **av)
