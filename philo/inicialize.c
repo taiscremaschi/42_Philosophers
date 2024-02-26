@@ -6,7 +6,7 @@
 /*   By: tbolzan- <tbolzan-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/19 13:24:12 by tbolzan-          #+#    #+#             */
-/*   Updated: 2024/02/26 12:42:21 by tbolzan-         ###   ########.fr       */
+/*   Updated: 2024/02/26 16:51:09 by tbolzan-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,10 +43,32 @@ void	inicialize_all(t_start *start)
 	}
 }
 
+int	handle_valid_arg(char **av)
+{
+	int	i;
+	int	j;
+
+	i = 1;
+	while (av[i] != NULL)
+	{
+		j = 0;
+		while (av[i][j] != '\0')
+		{
+			if (av[i][j] < '0' || av[i][j] > '9')
+				return (1);
+			j++;
+		}
+		i++;
+	}
+	return (0);
+}
+
 int	validate_args(t_start *start, char **av, int ac)
 {
 	if (ac < 5 || ac > 6)
 		return (write(2, "number of wrong arguments\n", 26));
+	if (handle_valid_arg(av) == 1)
+		return (write(2, "error in characters\n", 20));
 	start->nbr_philo = ft_atoi(av[1]);
 	if (start->nbr_philo > 200 || start->nbr_philo <= 0)
 		return (write(2, "error in number of philos\n", 26));
