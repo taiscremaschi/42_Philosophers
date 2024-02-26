@@ -6,7 +6,7 @@
 /*   By: tbolzan- <tbolzan-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/19 13:24:39 by tbolzan-          #+#    #+#             */
-/*   Updated: 2024/02/26 12:34:54 by tbolzan-         ###   ########.fr       */
+/*   Updated: 2024/02/26 17:11:37 by tbolzan-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,6 @@ typedef struct s_start
 
 /////////////// utils /////////////////
 int					ft_atoi(char *str);
-int					ft_putstr(char *s);
 long int			get_current_time(void);
 
 /////////////// inicialize ///////////////

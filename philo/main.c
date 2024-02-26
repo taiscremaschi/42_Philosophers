@@ -6,7 +6,7 @@
 /*   By: tbolzan- <tbolzan-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/19 13:24:25 by tbolzan-          #+#    #+#             */
-/*   Updated: 2024/02/26 16:53:56 by tbolzan-         ###   ########.fr       */
+/*   Updated: 2024/02/26 17:10:17 by tbolzan-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,14 +44,7 @@ void	print_actions(t_philo *philo, int token)
 		printf("%ld %d died\n", current_time - *philo->start_time, philo->id);
 }
 
-int	philo_is_dead(t_philo philo)
-{
-	if (philo.last_meal == 0)
-		return (1);
-	if (get_current_time() - philo.last_meal >= philo.time_die)
-		return (0);
-	return (1);
-}
+
 
 int	main(int ac, char **av)
 {

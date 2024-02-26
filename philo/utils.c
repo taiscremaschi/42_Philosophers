@@ -6,7 +6,7 @@
 /*   By: tbolzan- <tbolzan-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/19 13:24:45 by tbolzan-          #+#    #+#             */
-/*   Updated: 2024/02/26 12:39:15 by tbolzan-         ###   ########.fr       */
+/*   Updated: 2024/02/26 17:11:31 by tbolzan-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,17 +47,3 @@ int	ft_atoi(char *ptr)
 	return (sig * result);
 }
 
-void	ft_putchar_fd(char c)
-{
-	write(1, &c, 1);
-}
-
-int	ft_putstr(char *s)
-{
-	int	x;
-
-	x = 0;
-	while (s[x] != '\0')
-		ft_putchar_fd(s[x++]);
-	return (x);
-}

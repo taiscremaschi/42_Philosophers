@@ -6,11 +6,20 @@
 /*   By: tbolzan- <tbolzan-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/26 12:32:45 by tbolzan-          #+#    #+#             */
-/*   Updated: 2024/02/26 12:33:14 by tbolzan-         ###   ########.fr       */
+/*   Updated: 2024/02/26 17:10:32 by tbolzan-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
+
+int	philo_is_dead(t_philo philo)
+{
+	if (philo.last_meal == 0)
+		return (1);
+	if (get_current_time() - philo.last_meal >= philo.time_die)
+		return (0);
+	return (1);
+}
 
 int	handle_dead(t_start *start)
 {
