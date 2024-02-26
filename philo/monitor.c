@@ -6,7 +6,7 @@
 /*   By: tbolzan- <tbolzan-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/26 12:32:45 by tbolzan-          #+#    #+#             */
-/*   Updated: 2024/02/26 20:03:36 by tbolzan-         ###   ########.fr       */
+/*   Updated: 2024/02/26 21:59:49 by tbolzan-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,8 +33,8 @@ int	handle_dead(t_start *start)
 			i++;
 		else
 		{
-			print_actions(&start->philos[i], 3);
 		    pthread_mutex_unlock(&start->monitor_mutex);
+			print_actions(&start->philos[i], 3);
 			pthread_mutex_lock(&start->monitor_mutex);
 			start->dead_flag = 1;
 			pthread_mutex_unlock(&start->monitor_mutex);
@@ -84,7 +84,6 @@ void	monitor(t_start *start)
 		{
 			if (check_eatings(start, nbr_eat) == 1 || handle_dead(start) == 1)
 				break ;
-			usleep(500);
 		}
 	}
 	else
