@@ -6,7 +6,7 @@
 /*   By: tbolzan- <tbolzan-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/19 13:24:45 by tbolzan-          #+#    #+#             */
-/*   Updated: 2024/02/26 12:34:04 by tbolzan-         ###   ########.fr       */
+/*   Updated: 2024/02/26 12:39:15 by tbolzan-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,29 +22,29 @@ long int	get_current_time(void)
 
 int	ft_atoi(char *ptr)
 {
-	int	x;
-	int	signal;
+	int	i;
+	int	sig;
 	int	result;
 
-	signal = 1;
+	sig = 1;
 	result = 0;
-	x = 0;
-	while (ptr[x] == ' ' || (ptr[x] >= 9 && ptr[x] <= 13))
-		x++;
-	if (ptr[x] == '-')
+	i = 0;
+	while (ptr[i] == ' ' || (ptr[i] >= 9 && ptr[i] <= 13))
+		i++;
+	if (ptr[i] == '-')
 	{
-		signal = signal * -1;
-		x++;
+		sig = sig * -1;
+		i++;
 	}
-	else if (ptr[x] == '+')
-		x++;
-	while (ptr[x] >= '0' && ptr[x] <= '9')
+	else if (ptr[i] == '+')
+		i++;
+	while (ptr[i] >= '0' && ptr[i] <= '9')
 	{
 		result *= 10;
-		result = result + ptr[x] - '0';
-		x++;
+		result = result + ptr[i] - '0';
+		i++;
 	}
-	return (signal * result);
+	return (sig * result);
 }
 
 void	ft_putchar_fd(char c)

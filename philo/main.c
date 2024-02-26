@@ -6,7 +6,7 @@
 /*   By: tbolzan- <tbolzan-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/19 13:24:25 by tbolzan-          #+#    #+#             */
-/*   Updated: 2024/02/26 12:33:40 by tbolzan-         ###   ########.fr       */
+/*   Updated: 2024/02/26 12:36:58 by tbolzan-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,8 @@ int	main(int ac, char **av)
 	t_start	start;
 
 	i = 0;
-	validate_args(&start, av, ac);
+	if(validate_args(&start, av, ac) != 0)
+        return (1);
 	inicialize_arguments(av, &start);
 	inicialize_all(&start);
 	start.real_start_time = get_current_time();
