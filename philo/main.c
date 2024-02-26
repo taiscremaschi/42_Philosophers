@@ -6,7 +6,7 @@
 /*   By: tbolzan- <tbolzan-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/19 13:24:25 by tbolzan-          #+#    #+#             */
-/*   Updated: 2024/02/25 12:12:41 by tbolzan-         ###   ########.fr       */
+/*   Updated: 2024/02/25 13:04:59 by tbolzan-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,8 +64,11 @@ int	handle_dead(t_start *start)
 			i++;
 		else
 		{
-			print_actions(&start->philos[i], 3);
+		
+        	print_actions(&start->philos[i], 3);
+            pthread_mutex_lock(&start->monitor_mutex);    
 			start->dead_flag = 1;
+            pthread_mutex_unlock(&start->monitor_mutex);
 			return (1);
 		}
 	}
@@ -78,6 +81,7 @@ int check_eatings(t_start *start, int nbr_eat)
     int nbrphilo = start->nbr_philo;
     
     i = 0;
+    pthread_mutex_lock(&start->monitor_mutex);
     while(i < start->nbr_philo)
     {
         if (start->philos[i].nbr_eat_now >= nbr_eat)
@@ -86,13 +90,14 @@ int check_eatings(t_start *start, int nbr_eat)
         }
         else 
             break ;
-        
     }
     if( i == nbrphilo)
     {
 		start->dead_flag = 1;
+        pthread_mutex_unlock(&start->monitor_mutex);
 		return (1);
     }
+    pthread_mutex_unlock(&start->monitor_mutex);
 	return (0);
     
 }
@@ -139,6 +144,7 @@ int	main(int ac, char **av)
 			&start.philos[i]);
 		i++;
 	}
+    printf("numero eat is %d\n", start.philos[i].nbr_eat);
 	monitor(&start);
 	i = 0;
 	while (i < start.nbr_philo)

@@ -6,7 +6,7 @@
 /*   By: tbolzan- <tbolzan-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/23 18:11:23 by tbolzan-          #+#    #+#             */
-/*   Updated: 2024/02/25 11:44:31 by tbolzan-         ###   ########.fr       */
+/*   Updated: 2024/02/25 12:50:44 by tbolzan-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,15 @@
 
 int	is_over(t_philo *arg)
 {
-	pthread_mutex_lock(&arg->dead_mutex);
+	pthread_mutex_lock(arg->monitor_philo);
 	if (*arg->dead == 1)
 	{
-		pthread_mutex_unlock(&arg->dead_mutex);
+		pthread_mutex_unlock(arg->monitor_philo);
 		return (1);
 	}
 	else
 	{
-		pthread_mutex_unlock(&arg->dead_mutex);
+		pthread_mutex_unlock(arg->monitor_philo);
 		return (0);
 	}
 }
@@ -66,7 +66,9 @@ int	eat(t_philo *philo)
 		pthread_mutex_lock(philo->fork_right);
 	}
 	print_actions(philo, 1);
+	pthread_mutex_lock(philo->monitor_philo);
 	philo->nbr_eat_now += 1;
+	pthread_mutex_unlock(philo->monitor_philo);
 	philo->last_meal = get_current_time();
 	flag = wait_time(philo->time_eat, philo);
 	pthread_mutex_unlock(&philo->fork_left);

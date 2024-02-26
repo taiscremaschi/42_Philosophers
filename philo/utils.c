@@ -6,7 +6,7 @@
 /*   By: tbolzan- <tbolzan-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/19 13:24:45 by tbolzan-          #+#    #+#             */
-/*   Updated: 2024/02/23 20:31:40 by tbolzan-         ###   ########.fr       */
+/*   Updated: 2024/02/26 11:57:15 by tbolzan-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,30 +20,31 @@ long int	get_current_time(void)
 	return (current_time.tv_sec * 1000 + current_time.tv_usec / 1000);
 }
 
-unsigned int	ft_atoi(char *str)
+int	ft_atoi(const char *ptr)
 {
-	int				i;
-	unsigned int	result;
+	int	x;
+	int	signal;
+	int	result;
 
-	i = 0;
+	signal = 1;
 	result = 0;
-	if (str[i] == ' ' || (str[i] >= 8 && str[i] <= 13))
-		i++;
-	if ((str[i] >= 'a' && str[i] <= 'z') || (str[i] >= 'A' && str[i] <= 'Z'))
+	x = 0;
+	while (ptr[x] == ' ' || (ptr[x] >= 9 && ptr[x] <= 13))
+		x++;
+	if (ptr[x] == '-')
 	{
-		return (write(2, "argument error\n", 15));
+		signal = signal * -1;
+		x++;
 	}
-	if (str[i] == '-')
-	{
-		return (write(2, "argument error\n", 15));
-	}
-	while (str[i] >= '0' && str[i] <= '9')
+	else if (ptr[x] == '+')
+		x++;
+	while (ptr[x] >= '0' && ptr[x] <= '9')
 	{
 		result *= 10;
-		result = result + str[i] - '0';
-		i++;
+		result = result + ptr[x] - '0';
+		x++;
 	}
-	return (result);
+	return (signal * result);
 }
 
 void	ft_putchar_fd(char c)
