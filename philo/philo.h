@@ -6,7 +6,7 @@
 /*   By: tbolzan- <tbolzan-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/19 13:24:39 by tbolzan-          #+#    #+#             */
-/*   Updated: 2024/02/25 12:39:38 by tbolzan-         ###   ########.fr       */
+/*   Updated: 2024/02/26 12:34:54 by tbolzan-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,10 +26,8 @@ typedef struct s_philo
 	pthread_t		thread;
 	pthread_mutex_t	fork_left;
 	pthread_mutex_t	*fork_right;
-///	pthread_mutex_t	write; 
-    pthread_mutex_t	dead_mutex;
-//	pthread_mutex_t	meal_mutex;
-    pthread_mutex_t *monitor_philo;
+	pthread_mutex_t	dead_mutex;
+	pthread_mutex_t	*monitor_philo;
 	int				id;
 	int				nbr_eat_now;
 	int				time_die;
@@ -46,20 +44,19 @@ typedef struct s_start
 	int				nbr_philo;
 	long int		real_start_time;
 	int				dead_flag;
-//	pthread_mutex_t	end_mutex;
-    pthread_mutex_t monitor_mutex;
+	pthread_mutex_t	monitor_mutex;
 	pthread_mutex_t	fork[MAX_NBR];
 	t_philo			philos[MAX_NBR];
 
 }					t_start;
 
 /////////////// utils /////////////////
-unsigned int		ft_atoi(char *str);
+int					ft_atoi(char *str);
 int					ft_putstr(char *s);
 long int			get_current_time(void);
 
 /////////////// inicialize ///////////////
-
+int					validate_args(t_start *start, char **av, int ac);
 int					inicialize_arguments(char **av, t_start *start);
 void				inicialize_all(t_start *start);
 
