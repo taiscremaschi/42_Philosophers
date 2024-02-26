@@ -6,7 +6,7 @@
 /*   By: tbolzan- <tbolzan-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/19 13:24:45 by tbolzan-          #+#    #+#             */
-/*   Updated: 2024/02/26 17:11:31 by tbolzan-         ###   ########.fr       */
+/*   Updated: 2024/02/26 19:39:01 by tbolzan-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,4 +46,3 @@ int	ft_atoi(char *ptr)
 	}
 	return (sig * result);
 }
-

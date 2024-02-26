@@ -6,7 +6,7 @@
 /*   By: tbolzan- <tbolzan-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/19 13:24:25 by tbolzan-          #+#    #+#             */
-/*   Updated: 2024/02/26 17:10:17 by tbolzan-         ###   ########.fr       */
+/*   Updated: 2024/02/26 19:54:23 by tbolzan-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,11 +21,12 @@
 void	print_actions(t_philo *philo, int token)
 {
 	long int	current_time;
-
+    
 	current_time = get_current_time();
 	if (is_over(philo) == 1)
 		return ;
-	if (token == 0)
+	pthread_mutex_lock(philo->write);
+    if (token == 0)
 		printf("%ld %d is thinking\n", current_time - *philo->start_time,
 			philo->id);
 	else if (token == 1)
@@ -42,6 +43,7 @@ void	print_actions(t_philo *philo, int token)
 			philo->id);
 	else if (token == 3)
 		printf("%ld %d died\n", current_time - *philo->start_time, philo->id);
+	pthread_mutex_unlock(philo->write);
 }
 
 

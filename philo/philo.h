@@ -6,7 +6,7 @@
 /*   By: tbolzan- <tbolzan-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/19 13:24:39 by tbolzan-          #+#    #+#             */
-/*   Updated: 2024/02/26 17:11:37 by tbolzan-         ###   ########.fr       */
+/*   Updated: 2024/02/26 19:48:26 by tbolzan-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ typedef struct s_philo
 {
 	pthread_t		thread;
 	pthread_mutex_t	fork_left;
+	pthread_mutex_t	*write;
 	pthread_mutex_t	*fork_right;
 	pthread_mutex_t	dead_mutex;
 	pthread_mutex_t	*monitor_philo;
@@ -44,6 +45,7 @@ typedef struct s_start
 	int				nbr_philo;
 	long int		real_start_time;
 	int				dead_flag;
+	pthread_mutex_t	write_mutex;
 	pthread_mutex_t	monitor_mutex;
 	pthread_mutex_t	fork[MAX_NBR];
 	t_philo			philos[MAX_NBR];
