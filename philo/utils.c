@@ -6,7 +6,7 @@
 /*   By: tbolzan- <tbolzan-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/19 13:24:45 by tbolzan-          #+#    #+#             */
-/*   Updated: 2024/02/27 10:11:24 by tbolzan-         ###   ########.fr       */
+/*   Updated: 2024/02/27 10:20:06 by tbolzan-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ long int	get_current_time(void)
 	return (current_time.tv_sec * 1000 + current_time.tv_usec / 1000);
 }
 
-int	ft_atoi(char *ptr)
+int	ft_atoi(char *str)
 {
 	int	i;
 	int	sig;
@@ -29,19 +29,19 @@ int	ft_atoi(char *ptr)
 	sig = 1;
 	result = 0;
 	i = 0;
-	while (ptr[i] == ' ' || (ptr[i] >= 9 && ptr[i] <= 13))
+	while (str[i] == ' ' || (str[i] >= 9 && str[i] <= 13))
 		i++;
-	if (ptr[i] == '-')
+	if (str[i] == '-')
 	{
 		sig = sig * -1;
 		i++;
 	}
-	else if (ptr[i] == '+')
+	else if (str[i] == '+')
 		i++;
-	while (ptr[i] >= '0' && ptr[i] <= '9')
+	while (str[i] >= '0' && str[i] <= '9')
 	{
 		result *= 10;
-		result = result + ptr[i] - '0';
+		result = result + str[i] - '0';
 		i++;
 	}
 	return (sig * result);
@@ -60,4 +60,32 @@ void	clean_mutex(t_start *start)
 	}
 	pthread_mutex_destroy(&start->write_mutex);
 	pthread_mutex_destroy(&start->monitor_mutex);
+}
+
+void	print_actions(t_philo *philo, int token)
+{
+	long int	current_time;
+
+	current_time = get_current_time();
+	if (is_over(philo) == 1)
+		return ;
+	pthread_mutex_lock(philo->write);
+	if (token == 0)
+		printf("%ld %d is thinking\n", current_time - *philo->start_time,
+			philo->id);
+	else if (token == 1)
+	{
+		printf("%ld %d has taken a fork\n", current_time - *philo->start_time,
+			philo->id);
+		printf("%ld %d has taken a fork\n", current_time - *philo->start_time,
+			philo->id);
+		printf("%ld %d is eating\n", current_time - *philo->start_time,
+			philo->id);
+	}
+	else if (token == 2)
+		printf("%ld %d is sleeping\n", current_time - *philo->start_time,
+			philo->id);
+	else if (token == 3)
+		printf("%ld %d died\n", current_time - *philo->start_time, philo->id);
+	pthread_mutex_unlock(philo->write);
 }

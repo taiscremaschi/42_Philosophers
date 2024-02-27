@@ -6,7 +6,7 @@
 /*   By: tbolzan- <tbolzan-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/19 13:24:39 by tbolzan-          #+#    #+#             */
-/*   Updated: 2024/02/27 10:11:42 by tbolzan-         ###   ########.fr       */
+/*   Updated: 2024/02/27 10:29:33 by tbolzan-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,17 +56,19 @@ typedef struct s_start
 int					ft_atoi(char *str);
 long int			get_current_time(void);
 void				clean_mutex(t_start *start);
+void				print_actions(t_philo *philo, int token);
 
 /////////////// inicialize ///////////////
 int					validate_args(t_start *start, char **av, int ac);
 int					inicialize_arguments(char **av, t_start *start);
 void				inicialize_all(t_start *start);
+int					handle_valid_arg(char **av);
 
-//////////////////// main ////////////////////
-void				print_actions(t_philo *philo, int token);
+//////////////////// monitor ////////////////////
 int					philo_is_dead(t_philo philo);
 int					handle_dead(t_start *start);
 void				monitor(t_start *start);
+int					check_eatings(t_start *start, int nbr_eat);
 
 ////////////////////////routines///////////
 int					philo_sleep(t_philo *philo);
