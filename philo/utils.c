@@ -6,7 +6,7 @@
 /*   By: tbolzan- <tbolzan-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/19 13:24:45 by tbolzan-          #+#    #+#             */
-/*   Updated: 2024/02/27 10:08:54 by tbolzan-         ###   ########.fr       */
+/*   Updated: 2024/02/27 10:11:24 by tbolzan-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,15 +47,16 @@ int	ft_atoi(char *ptr)
 	return (sig * result);
 }
 
-void clean_mutex(t_start *start)
+void	clean_mutex(t_start *start)
 {
-	int i = 0;
+	int	i;
 
-	while(i < start->nbr_philo)
+	i = 0;
+	while (i < start->nbr_philo)
 	{
 		pthread_mutex_destroy(&start->philos->fork_left);
 		pthread_mutex_destroy(&start->philos->dead_mutex);
-		i++;		
+		i++;
 	}
 	pthread_mutex_destroy(&start->write_mutex);
 	pthread_mutex_destroy(&start->monitor_mutex);

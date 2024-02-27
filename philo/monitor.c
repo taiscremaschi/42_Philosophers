@@ -6,7 +6,7 @@
 /*   By: tbolzan- <tbolzan-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/26 12:32:45 by tbolzan-          #+#    #+#             */
-/*   Updated: 2024/02/27 09:40:58 by tbolzan-         ###   ########.fr       */
+/*   Updated: 2024/02/27 10:12:10 by tbolzan-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,17 +28,16 @@ int	handle_dead(t_start *start)
 	i = 0;
 	while (i < start->nbr_philo)
 	{
-	    pthread_mutex_lock(&start->monitor_mutex);
+		pthread_mutex_lock(&start->monitor_mutex);
 		if (philo_is_dead(start->philos[i]) == 1)
 			i++;
 		else
 		{
-		    pthread_mutex_unlock(&start->monitor_mutex);
+			pthread_mutex_unlock(&start->monitor_mutex);
 			print_actions(&start->philos[i], 3);
 			pthread_mutex_lock(&start->monitor_mutex);
 			start->dead_flag = 1;
 			pthread_mutex_unlock(&start->monitor_mutex);
-            
 			return (1);
 		}
 		pthread_mutex_unlock(&start->monitor_mutex);
@@ -78,7 +77,7 @@ void	monitor(t_start *start)
 	int	nbr_eat;
 
 	nbr_eat = start->philos[0].nbr_eat;
-	if(start->nbr_philo == 1)
+	if (start->nbr_philo == 1)
 	{
 		start->dead_flag = 1;
 		return ;

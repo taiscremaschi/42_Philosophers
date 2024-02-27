@@ -6,7 +6,7 @@
 /*   By: tbolzan- <tbolzan-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/19 13:24:39 by tbolzan-          #+#    #+#             */
-/*   Updated: 2024/02/27 10:09:07 by tbolzan-         ###   ########.fr       */
+/*   Updated: 2024/02/27 10:11:42 by tbolzan-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ typedef struct s_philo
 	long int		last_meal;
 	long int		*start_time;
 }					t_philo;
-	
+
 typedef struct s_start
 {
 	int				nbr_philo;
@@ -56,7 +56,6 @@ typedef struct s_start
 int					ft_atoi(char *str);
 long int			get_current_time(void);
 void				clean_mutex(t_start *start);
-
 
 /////////////// inicialize ///////////////
 int					validate_args(t_start *start, char **av, int ac);
