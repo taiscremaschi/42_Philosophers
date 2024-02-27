@@ -6,7 +6,7 @@
 /*   By: tbolzan- <tbolzan-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/19 13:24:45 by tbolzan-          #+#    #+#             */
-/*   Updated: 2024/02/27 10:20:06 by tbolzan-         ###   ########.fr       */
+/*   Updated: 2024/02/27 11:17:33 by tbolzan-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,8 +54,8 @@ void	clean_mutex(t_start *start)
 	i = 0;
 	while (i < start->nbr_philo)
 	{
-		pthread_mutex_destroy(&start->philos->fork_left);
-		pthread_mutex_destroy(&start->philos->dead_mutex);
+		pthread_mutex_destroy(&start->philos[i].fork_left);
+		pthread_mutex_destroy(&start->philos[i].dead_mutex);
 		i++;
 	}
 	pthread_mutex_destroy(&start->write_mutex);
