@@ -6,7 +6,7 @@
 /*   By: tbolzan- <tbolzan-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/23 18:11:23 by tbolzan-          #+#    #+#             */
-/*   Updated: 2024/02/27 11:21:22 by tbolzan-         ###   ########.fr       */
+/*   Updated: 2024/02/27 21:14:50 by tbolzan-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,11 +20,8 @@ int	is_over(t_philo *arg)
 		pthread_mutex_unlock(arg->monitor_philo);
 		return (1);
 	}
-	else
-	{
-		pthread_mutex_unlock(arg->monitor_philo);
-		return (0);
-	}
+	pthread_mutex_unlock(arg->monitor_philo);
+	return (0);
 }
 
 int	wait_time(size_t milli, t_philo *philo)
@@ -93,6 +90,8 @@ void	*routine(void *arg)
 			philo->id);
 		return (NULL);
 	}
+	if(philo->id % 2 != 0)
+		usleep(100);
 	while (is_over(philo) == 0)
 	{
 		if (eat(philo) == 1)
