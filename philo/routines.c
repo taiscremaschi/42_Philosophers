@@ -6,7 +6,7 @@
 /*   By: tbolzan- <tbolzan-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/23 18:11:23 by tbolzan-          #+#    #+#             */
-/*   Updated: 2024/02/27 10:11:48 by tbolzan-         ###   ########.fr       */
+/*   Updated: 2024/02/27 10:50:22 by tbolzan-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,7 @@ int	philo_sleep(t_philo *philo)
 	if (wait_time(philo->time_sleep, philo) == 1)
 		return (1);
 	print_actions(philo, 0);
+	usleep(500);
 	return (0);
 }
 
