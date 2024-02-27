@@ -6,7 +6,7 @@
 /*   By: tbolzan- <tbolzan-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/19 13:24:25 by tbolzan-          #+#    #+#             */
-/*   Updated: 2024/02/26 22:12:54 by tbolzan-         ###   ########.fr       */
+/*   Updated: 2024/02/27 10:09:39 by tbolzan-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,5 +72,6 @@ int	main(int ac, char **av)
 		pthread_join(start.philos[i].thread, NULL);
 		i++;
 	}
+    clean_mutex(&start);
 	return (0);
 }

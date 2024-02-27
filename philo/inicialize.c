@@ -6,23 +6,11 @@
 /*   By: tbolzan- <tbolzan-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/19 13:24:12 by tbolzan-          #+#    #+#             */
-/*   Updated: 2024/02/27 09:40:38 by tbolzan-         ###   ########.fr       */
+/*   Updated: 2024/02/27 10:08:16 by tbolzan-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
-
-void	inicialize_forks(pthread_mutex_t *fork, int nbr_philo)
-{
-	int	i;
-
-	i = 0;
-	while (i < nbr_philo)
-	{
-		pthread_mutex_init(&fork[i], NULL);
-		i++;
-	}
-}
 
 void	inicialize_all(t_start *start)
 {
@@ -103,6 +91,5 @@ int	inicialize_arguments(char **av, t_start *start)
 		start->philos[i].start_time = &start->real_start_time;
 		i++;
 	}
-	inicialize_forks(start->fork, start->nbr_philo);
 	return (0);
 }

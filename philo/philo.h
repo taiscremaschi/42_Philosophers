@@ -6,7 +6,7 @@
 /*   By: tbolzan- <tbolzan-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/19 13:24:39 by tbolzan-          #+#    #+#             */
-/*   Updated: 2024/02/27 09:25:03 by tbolzan-         ###   ########.fr       */
+/*   Updated: 2024/02/27 10:09:07 by tbolzan-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,6 @@ typedef struct s_start
 	int				dead_flag;
 	pthread_mutex_t	write_mutex;
 	pthread_mutex_t	monitor_mutex;
-	pthread_mutex_t	fork[MAX_NBR];
 	t_philo			philos[MAX_NBR];
 
 }					t_start;
@@ -56,6 +55,8 @@ typedef struct s_start
 /////////////// utils /////////////////
 int					ft_atoi(char *str);
 long int			get_current_time(void);
+void				clean_mutex(t_start *start);
+
 
 /////////////// inicialize ///////////////
 int					validate_args(t_start *start, char **av, int ac);
