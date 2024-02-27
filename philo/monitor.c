@@ -6,7 +6,7 @@
 /*   By: tbolzan- <tbolzan-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/26 12:32:45 by tbolzan-          #+#    #+#             */
-/*   Updated: 2024/02/26 21:59:49 by tbolzan-         ###   ########.fr       */
+/*   Updated: 2024/02/27 09:40:58 by tbolzan-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,6 +78,11 @@ void	monitor(t_start *start)
 	int	nbr_eat;
 
 	nbr_eat = start->philos[0].nbr_eat;
+	if(start->nbr_philo == 1)
+	{
+		start->dead_flag = 1;
+		return ;
+	}
 	if (nbr_eat != -1)
 	{
 		while (1)

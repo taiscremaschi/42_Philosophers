@@ -6,7 +6,7 @@
 /*   By: tbolzan- <tbolzan-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/19 13:24:39 by tbolzan-          #+#    #+#             */
-/*   Updated: 2024/02/26 19:48:26 by tbolzan-         ###   ########.fr       */
+/*   Updated: 2024/02/27 09:25:03 by tbolzan-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,11 +35,12 @@ typedef struct s_philo
 	int				time_eat;
 	int				time_sleep;
 	int				nbr_eat;
+	int				n_philo;
 	int				*dead;
 	long int		last_meal;
 	long int		*start_time;
 }					t_philo;
-
+	
 typedef struct s_start
 {
 	int				nbr_philo;

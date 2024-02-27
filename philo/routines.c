@@ -6,7 +6,7 @@
 /*   By: tbolzan- <tbolzan-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/23 18:11:23 by tbolzan-          #+#    #+#             */
-/*   Updated: 2024/02/26 21:53:17 by tbolzan-         ###   ########.fr       */
+/*   Updated: 2024/02/27 09:51:29 by tbolzan-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,6 +83,13 @@ void	*routine(void *arg)
 	t_philo		*philo;
 
 	philo = (t_philo *)arg;
+	if(philo->n_philo == 1)
+	{
+		printf("%ld %d has taken a fork\n", get_current_time() - *philo->start_time, philo->id);
+		usleep(philo->time_die * 1000);
+		printf("%ld %d died\n", get_current_time() - *philo->start_time, philo->id);
+		return (NULL);
+	}
 	while (is_over(philo) == 0)
 	{
 		if (eat(philo) == 1)

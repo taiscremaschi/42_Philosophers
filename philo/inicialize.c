@@ -6,7 +6,7 @@
 /*   By: tbolzan- <tbolzan-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/19 13:24:12 by tbolzan-          #+#    #+#             */
-/*   Updated: 2024/02/26 21:37:50 by tbolzan-         ###   ########.fr       */
+/*   Updated: 2024/02/27 09:40:38 by tbolzan-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,7 @@ void	inicialize_all(t_start *start)
 		pthread_mutex_init(&start->philos[i].fork_left, NULL);
 		start->philos[i].monitor_philo = &start->monitor_mutex;
         start->philos[i].write = &start->write_mutex;
+        start->philos[i].n_philo = start->nbr_philo;
 		if (i == start->nbr_philo - 1)
 			start->philos[i].fork_right = &start->philos[0].fork_left;
 		else
