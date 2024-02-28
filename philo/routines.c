@@ -90,7 +90,7 @@ void	*routine(void *arg)
 			philo->id);
 		return (NULL);
 	}
-	if(philo->id % 2 != 0)
+	if (philo->id % 2 != 0)
 		usleep(100);
 	while (is_over(philo) == 0)
 	{
