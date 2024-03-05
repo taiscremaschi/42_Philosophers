@@ -6,7 +6,7 @@
 /*   By: tbolzan- <tbolzan-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/19 13:24:39 by tbolzan-          #+#    #+#             */
-/*   Updated: 2024/03/05 11:23:00 by tbolzan-         ###   ########.fr       */
+/*   Updated: 2024/03/05 11:24:37 by tbolzan-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,6 @@ long int			get_current_time(void);
 void				clean_mutex(t_start *start);
 void				print_actions(t_philo *philo, int token);
 int					ft_abs(int nbr);
-
 
 /////////////// inicialize ///////////////
 int					validate_args(t_start *start, char **av, int ac);
