@@ -12,6 +12,20 @@
 
 #include "philo.h"
 
+int	check_args(char **av)
+{
+	int	i;
+
+	i = 1;
+	while (av[i])
+	{
+		if (ft_strlen(av[i]) > 10)
+			return (1);
+		i++;
+	}
+	return (0);
+}
+
 void	inicialize_all(t_start *start)
 {
 	int	i;
@@ -64,9 +78,11 @@ int	validate_args(t_start *start, char **av, int ac)
 	if (start->nbr_philo > 200 || start->nbr_philo <= 0)
 		return (write(2, "error in number of philos\n", 26));
 	if (ft_atoi(av[2]) <= 0 || ft_atoi(av[3]) <= 0 || ft_atoi(av[4]) <= 0)
-		return (write(2, "error, the argument must be greater than 0\n", 43));
+		return (write(2, "error\n", 6));
 	if (av[5] && ft_atoi(av[5]) <= 0)
-		return (write(2, "error, the argument must be greater than 0\n", 43));
+		return (write(2, "error\n", 6));
+	if (check_args(av) == 1)
+		return (write(2, "error\n", 6));
 	return (0);
 }
 

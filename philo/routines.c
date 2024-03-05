@@ -90,7 +90,7 @@ void	*routine(void *arg)
 			philo->id);
 		return (NULL);
 	}
-	if (philo->id % 2 != 0)
+	if (philo->id % 2 == 0)
 		usleep(100);
 	while (is_over(philo) == 0)
 	{
@@ -98,7 +98,8 @@ void	*routine(void *arg)
 			break ;
 		if (philo_sleep(philo) == 1)
 			break ;
-		usleep(ft_abs((philo->time_eat - philo->time_sleep) * 1000));
+		if (philo->n_philo % 2 != 0)
+			usleep(ft_abs((philo->time_eat - philo->time_sleep) * 1000));
 	}
 	return (NULL);
 }

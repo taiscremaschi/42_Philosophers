@@ -70,6 +70,7 @@ int					philo_is_dead(t_philo philo);
 int					handle_dead(t_start *start);
 void				monitor(t_start *start);
 int					check_eatings(t_start *start, int nbr_eat);
+int					ft_strlen(char *s);
 
 ////////////////////////routines///////////
 int					philo_sleep(t_philo *philo);

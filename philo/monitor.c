@@ -12,6 +12,16 @@
 
 #include "philo.h"
 
+int	ft_strlen(char *s)
+{
+	int	i;
+
+	i = 0;
+	while (s[i] != '\0')
+		i++;
+	return (i);
+}
+
 int	philo_is_dead(t_philo philo)
 {
 	if (philo.last_meal == 0)
