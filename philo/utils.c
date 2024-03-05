@@ -6,11 +6,18 @@
 /*   By: tbolzan- <tbolzan-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/19 13:24:45 by tbolzan-          #+#    #+#             */
-/*   Updated: 2024/02/27 11:17:33 by tbolzan-         ###   ########.fr       */
+/*   Updated: 2024/03/05 11:23:18 by tbolzan-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
+
+int	ft_abs(int nbr)
+{
+	if (nbr >= 0)
+		return (nbr);
+	return (-nbr);
+}
 
 long int	get_current_time(void)
 {

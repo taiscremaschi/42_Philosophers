@@ -6,7 +6,7 @@
 /*   By: tbolzan- <tbolzan-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/23 18:11:23 by tbolzan-          #+#    #+#             */
-/*   Updated: 2024/02/27 21:14:50 by tbolzan-         ###   ########.fr       */
+/*   Updated: 2024/03/05 11:21:30 by tbolzan-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,6 +98,7 @@ void	*routine(void *arg)
 			break ;
 		if (philo_sleep(philo) == 1)
 			break ;
+		usleep(ft_abs((philo->time_eat - philo->time_sleep) * 1000));
 	}
 	return (NULL);
 }
